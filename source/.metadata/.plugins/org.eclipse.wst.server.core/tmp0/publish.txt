@@ -1,0 +1,5 @@
+#Tomcat publish data
+#Wed Dec 04 22:27:04 IST 2024
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\Gaurav\\.m2\\repository\\org\\apache\\tomcat\\embed\\tomcat-embed-el\\10.1.33\\tomcat-embed-el-10.1.33.jar=WEB-INF/lib/tomcat-embed-el-10.1.33.jar
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\Gaurav\\.m2\\repository\\org\\springframework\\spring-web\\6.1.15\\spring-web-6.1.15.jar=WEB-INF/lib/spring-web-6.1.15.jar
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\Gaurav\\.m2\\repository\\org\\apache\\tomcat\\embed\\tomcat-embed-websocket\\10.1.33\\tomcat-embed-websocket-10.1.33.jar=WEB-INF/lib/tomcat-embed-websocket-10.1.33.jar
