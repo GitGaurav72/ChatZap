@@ -68,21 +68,4 @@ public class userController {
 	public List<userEntity> getall(){
 		return service.getallUser();
 	}
-	
-	
-//	
-//	@PostMapping("/msg")
-//	public messageEntity add(@RequestBody messageEntity msg) {
-//		return messageRepository.save(msg);
-//	}
-//	
-//	@PostMapping("/convr")
-//	public conversationEntity addConvr (@RequestBody conversationEntity convr) {
-//		return  conversationRepository.save(convr);
-//	}
-//	
-//	@PostMapping("/convpar")
-//	public convrPrtcpntEntity addConvrP(@RequestBody convrPrtcpntEntity converP) {
-//		return convrPartcpntRepository.save(converP);
-//	}
 }

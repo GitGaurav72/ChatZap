@@ -62,7 +62,7 @@
          APR (HTTP/AJP) Connector: /docs/apr.html
          Define a non-SSL/TLS HTTP/1.1 Connector on port 8080
     -->
-    <Connector connectionTimeout="20000" maxParameterCount="1000" port="9090" protocol="HTTP/1.1" redirectPort="8443"/>
+    <Connector connectionTimeout="20000" maxParameterCount="1000" port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
     <!-- A "Connector" using the shared thread pool-->
     <!--
     <Connector executor="tomcatThreadPool"
@@ -162,7 +162,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="D:\projects\ChatZap\source\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="D:\projects\ChatZap\source\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ui" path="/ui" reloadable="true" source="org.eclipse.jst.jee.server:ui"/></Host>
+      <Context docBase="D:\projects\ChatZap\source\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="D:\projects\ChatZap\source\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\api" path="/api_V0.2" reloadable="true" source="org.eclipse.jst.jee.server:api"/></Host>
     </Engine>
   </Service>
 </Server>

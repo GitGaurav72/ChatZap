@@ -1,0 +1,27 @@
+<div class="chat-list">
+  <div class="header">
+    <h2>Chat</h2>
+    <div class="search">
+      <input type="text" placeholder="Search">
+      <button class="add-btn"  (click)="addFriends()">+</button>
+      
+    </div>
+  </div>
+  <ul class="contacts">
+    <li *ngFor="let contact of contacts">
+      <div class="contact" (click)="onContactClick(contact, this.id)">
+        <img 
+          [src]="contact.profilePicture || 'assets/image1.png'" 
+          alt="Profile picture of {{ contact.firstname }}" 
+          (error)="this.src='assets/default-image.png'">
+        <div class="contact-info">
+          <h3>{{ contact.firstname }}</h3>
+          <!-- <p>{{ contact.message }}</p> --> 
+        </div>
+        <span class="time">{{ contact.status }}</span>
+      </div>
+      
+      
+    </li>
+  </ul>
+</div>

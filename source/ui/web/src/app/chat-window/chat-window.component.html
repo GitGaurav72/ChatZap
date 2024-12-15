@@ -1,0 +1,34 @@
+<div class="chat-window">
+  <div class="header">
+    <img 
+    [src]="user?.profilePicture || 'assets/image1.png'" 
+    alt="Profile picture of {{user?.firstname }}" >
+    <h3>{{ user?.firstname }} {{ user?.lastname }}</h3>
+    <div class="status">
+      <span class="online">{{ user?.status }}</span>
+    </div>
+    <div class="actions">
+      <button class="profile-btn" (click)="showProfile(senderId)">Profile</button>
+      <button class="call-btn">Call</button>
+    </div>
+  </div>
+
+  <div class="messages"   #messagess>
+    <!-- Loop through grouped messages by date -->
+    <div *ngFor="let group of groupedMessages">
+      <!-- Display the date -->
+      <div class="date-header" style="text-align: center;">{{ group.date }}</div>
+
+      <!-- Loop through each message for that date -->
+      <div class="message" *ngFor="let message of group.messages" [ngClass]="{'sent': message.sent, 'received': !message.sent}">
+        <p>{{ message.text }}</p>
+        <span class="time">{{ message.time }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="input">
+    <input type="text" [(ngModel)]="newMessage" placeholder="Write a message...">
+    <button class="send-btn" (click)="sendMessage()">Send</button>
+  </div>
+</div>

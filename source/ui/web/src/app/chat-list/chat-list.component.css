@@ -1,0 +1,70 @@
+.chat-list .header {
+    padding: 20px;
+    border-bottom: 1px solid #007bff;
+    top: 0;
+    position: sticky;
+    z-index: 1000; /* Ensure the header is above other elements */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f1f1f1; /* Ensure the header has a background */
+}
+
+.chat-list .search {
+    display: flex;
+    align-items: center;
+}
+
+.chat-list .search input {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+.chat-list .add-btn {
+    background-color: #007bff;;
+    border: none;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.chat-list .contacts {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+    overflow-y: auto; /* Ensure the contacts list can scroll */
+}
+
+.chat-list .contact {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.chat-list .contact img {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.chat-list .contact-info {
+    margin-left: 10px;
+}
+
+.chat-list .contact-info h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.chat-list .contact-info p {
+    margin: 0;
+    color: #888;
+}
+
+.chat-list .time {
+    margin-left: auto;
+    color: #888;
+}

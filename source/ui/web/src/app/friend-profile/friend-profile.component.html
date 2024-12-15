@@ -1,0 +1,20 @@
+<div class="profile-container">
+    <div class="profile-header">
+      <img [src]="'../../assets/image1.png'" alt="Profile Picture" class="profile-avatar" />
+    </div>
+    <div class="profile-details">
+      <div class="detail-row">
+        <label for="first-name">First Name</label>
+        <input id="first-name" type="text" [value]="friend.firstName" readonly />
+      </div>
+      <div class="detail-row">
+        <label for="last-name">Last Name</label>
+        <input id="last-name" type="text" [value]="friend.lastName" readonly />
+      </div>
+      <div class="detail-row">
+        <label for="about">About</label>
+        <input id="about" type="text" [value]="friend.about" readonly />
+      </div>
+    </div>
+  </div>
+  

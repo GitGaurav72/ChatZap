@@ -1,0 +1,48 @@
+.header {
+  position: relative;
+}
+
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.login-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+  margin-top: -100px; /* Adjust based on header height */
+}
+
+.login-card {
+	margin-top: 225px;
+    margin-right: 53px;
+  width: 300px;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.login-button {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .login-card {
+    width: 100%;
+    max-width: 300px;
+  }
+}

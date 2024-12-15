@@ -1,0 +1,20 @@
+<div class="navbar">
+    <button class="nav-button" (click)="viewSentRequests()">Sent Requests</button>
+    <button class="nav-button" (click)="viewReceivedRequests()">Received Requests</button>
+  </div>
+  
+  <div class="friends-container">
+    <h2>Your Friends</h2>
+    <div class="friend-card" *ngFor="let friend of friends">
+      <img [src]="'assets/image1.png'" alt="Friend Avatar" class="friend-avatar" />
+      <div class="friend-details">
+        <h3>{{ friend.name }}</h3>
+        <p>{{ friend.status }}</p>
+      </div>
+      <div class="friend-actions">
+        <button class="action-button" (click)="sendChatRequest(friend.id)">Send Chat Request</button>
+        <button class="action-button" (click)="showProfile(friend.id)">Show Profile</button>
+      </div>
+    </div>
+  </div>
+  

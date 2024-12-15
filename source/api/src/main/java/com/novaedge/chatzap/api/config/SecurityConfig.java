@@ -52,7 +52,7 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()
             .authorizeRequests()
-            .antMatchers("/api/users/register", "/api/users/login").permitAll()  // Allow public access to these endpoints
+            .antMatchers("/api/users/register", "/api/users/login", "/api/users/").permitAll()  // Allow public access to these endpoints
             .anyRequest().authenticated()  // Require authentication for other requests
             .and()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

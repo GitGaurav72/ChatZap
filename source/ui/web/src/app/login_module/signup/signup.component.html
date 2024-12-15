@@ -1,0 +1,60 @@
+<header class="header">
+  <mat-toolbar color="primary">
+    <span class="logo">ChatZap</span>
+    <span class="spacer"></span>
+    <a href="login"><button mat-raised-button color="accent">Log In</button></a>
+  </mat-toolbar>
+</header>
+
+<div class="signup-container">
+  <mat-card class="signup-card">
+    <h2>Sign Up</h2>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <mat-form-field appearance="fill" class="half-width">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstname" type="text" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="half-width">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastname" type="text" required>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field appearance="fill" class="half-width">
+          <mat-label>User Name</mat-label>
+          <input matInput formControlName="username" type="text" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="half-width">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" type="email" required>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field appearance="fill" class="half-width">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" type="password" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="half-width">
+          <mat-label>Confirm Password</mat-label>
+          <input matInput formControlName="confirmPassword" type="password" required>
+        </mat-form-field>
+      </div>
+
+      <button mat-raised-button color="primary" class="signup-button" type="submit">
+        Sign Up
+      </button>
+    </form>
+
+    <div class="social-login">
+      <p>Or sign up with:</p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/"><mat-icon>forum</mat-icon></a>
+        <a href="https://x.com/?lang=en"><mat-icon>people</mat-icon></a>
+        <a href="https://www.linkedin.com/"><mat-icon>linkedin</mat-icon></a>
+      </div>
+    </div>
+  </mat-card>
+</div>

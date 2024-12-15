@@ -1,0 +1,104 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Header Section -->
+  
+ 
+  <header class="header">
+    <mat-toolbar color="primary">
+      <span class="logo">ChatZap</span>
+      <span class="spacer"></span>
+      <nav mat-button-toggle-group class="nav">
+        <button mat-button>Home</button>
+        <button mat-button>Features</button>
+        <button mat-button>Pricing</button>
+        <button mat-button>About Us</button>
+        <button mat-button>Contact</button>
+        <a href="login"><button mat-raised-button color="accent">Sign Up</button></a>
+      </nav>
+     
+    </mat-toolbar>
+  </header>
+<div class ="image">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-title">Connect, Communicate, Collaborate Effortlessly</h1>
+      <p class="hero-subtitle">ChatZap makes communication easy and fun.</p>
+      <a href="window/0/0"> <button mat-raised-button color="primary" class="cta-button">Get Started</button></a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="contain">
+      <div class="feature" *ngFor="let feature of features">
+        <mat-icon>{{ feature.icon }}</mat-icon>
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="how-it-works">
+	<h2>How It Works</h2>
+    <div class="contain">
+      <div class="step" *ngFor="let step of steps">
+        <mat-icon>check_circle</mat-icon>
+        <h3>{{ step.title }}</h3>
+        <p>{{ step.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+	<h2>What Our Users Say</h2>
+    <div class="contain">
+      <mat-card class="testimonial" *ngFor="let testimonial of testimonials">
+        <mat-card-content>
+          <p>"{{ testimonial.quote }}"</p>
+          <span>- {{ testimonial.author }}</span>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing">
+    <div class="container">
+      <h2>Pricing Plans</h2>
+      <mat-card class="plan" *ngFor="let plan of pricingPlans">
+        <mat-card-header>
+          <mat-card-title>{{ plan.name }}</mat-card-title>
+          <mat-card-subtitle>{{ plan.price }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ plan.description }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="primary">{{ plan.buttonText }}</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </section>
+  </div>
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Support</a>
+      </div>
+      <div class="social-media">
+        <a href="https://www.facebook.com/"><mat-icon>forum</mat-icon></a>
+        <a href="https://x.com/?lang=en"><mat-icon>people</mat-icon></a>
+        <a href="https://www.linkedin.com/"><mat-icon>linkedin</mat-icon></a>
+      </div>
+      <p>&copy; 2024 ChatZap. All rights reserved.</p>
+    </div>
+  </footer>
+

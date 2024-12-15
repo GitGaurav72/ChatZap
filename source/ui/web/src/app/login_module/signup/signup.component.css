@@ -1,0 +1,97 @@
+.header {
+  position: relative;
+}
+
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.signup-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+  margin-top: -100px; /* Adjust based on header height */
+}
+
+.signup-card {
+	text-size-adjust: auto;
+    text-align: center;
+    margin-top: 145px;
+    margin-right: 30px;
+  width: 600px;
+  height: 480px;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.features mat-icon {
+  height: 40px;
+  width: 40px;
+  font-size: 35px;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.half-width {
+  width: 48%;
+}
+
+.signup-button {
+  width: 100%;
+}
+.social-login {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.social-login p {
+  margin-bottom: 10px;
+}
+
+.social-icons {
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icons mat-icon {
+  font-size: 30px;
+  color: #757575;
+  cursor: pointer;
+}
+
+.social-icons mat-icon:hover {
+  color: #007bff;
+}
+
+
+@media (max-width: 768px) {
+  .signup-container {
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .signup-card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .half-width {
+    width: 100%;
+  }
+}

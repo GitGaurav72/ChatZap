@@ -1,0 +1,59 @@
+<!-- <header class="header">
+  <mat-toolbar color="primary">
+    <span class="logo">ChatZap</span>
+    <span class="spacer"></span>
+    <a href = "signup"><button mat-raised-button color="accent">Sign Up</button></a>
+  </mat-toolbar>
+</header>
+
+<div class="login-container">
+  <mat-card class="login-card">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+		<mat-form-field appearance="fill" class="full-width">
+		 <mat-label>User Name</mat-label>
+		 <input matInput formControlName="username" type="text" required>
+		</mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" required>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="login-button" type="submit">Login</button>
+    </form>
+  </mat-card>
+</div>
+ -->
+
+
+<header class="header">
+  <mat-toolbar color="primary">
+    <span class="logo">ChatZap</span>
+    <span class="spacer"></span>
+    <a href="signup"><button mat-raised-button color="accent">Sign Up</button></a>
+  </mat-toolbar>
+</header>
+
+<div class="login-container">
+  <mat-card class="login-card">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>User Name</mat-label>
+        <input matInput formControlName="username" type="text" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password" required>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="login-button" type="submit">
+        Login
+      </button>
+    </form>
+  </mat-card>
+</div>
+
+
