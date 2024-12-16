@@ -10,8 +10,8 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>NovaEdge</groupId>
-	<artifactId>ChatZap</artifactId>
-	<version>chat_api</version>
+	<artifactId>chatzap</artifactId>
+	<version>0</version>
 	<packaging>war</packaging>
 	<name>ChatZap</name>
 	<description>Chat Application</description>
@@ -90,7 +90,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>chat_api</finalName>
+		<finalName>chatzap</finalName>
 		<plugins>
 		<plugin>
             <groupId>org.springframework.boot</groupId>

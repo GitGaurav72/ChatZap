@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ElementRef, ViewChild, AfterViewChecked } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders,HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LocalStorageService } from '../LocalStorageService';
@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-chat-window',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, HttpClientModule],
   templateUrl: './chat-window.component.html',
   styleUrls: ['./chat-window.component.css'],
   providers: [LocalStorageService]

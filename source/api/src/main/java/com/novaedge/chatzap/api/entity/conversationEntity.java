@@ -35,17 +35,7 @@ public class conversationEntity {
     @Column(name="UPDATED_AT")
     private Date updatedAt;
     
-//    // One-to-Many relationship with Messages
-//    @OneToMany(mappedBy = "conversation", cascade = CascadeType.ALL)
-//    @JsonManagedReference
-//    private List<messageEntity> messages;
-//
-//    // Many-to-Many relationship with User through ConversationParticipants
-//    @ManyToMany(mappedBy = "conversations")
-//    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "user_id")
-//    private Set<userEntity> participants;
-
-    // Default constructor
+    
     public conversationEntity() {}
 
     // Constructor
@@ -97,22 +87,6 @@ public class conversationEntity {
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
-
-//    public List<messageEntity> getMessages() {
-//        return messages;
-//    }
-//
-//    public void setMessages(List<messageEntity> messages) {
-//        this.messages = messages;
-//    }
-//
-//    public Set<userEntity> getParticipants() {
-//        return participants;
-//    }
-//
-//    public void setParticipants(Set<userEntity> participants) {
-//        this.participants = participants;
-//    }
 
     @Override
     public String toString() {

@@ -15,7 +15,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'user/friends', component: FriendsComponent },
-  { path: 'friend-profile/:id', component: FriendProfileComponent },
+  { path: 'friend-profile/:friendId', component: FriendProfileComponent },
 ];
 
 @NgModule({

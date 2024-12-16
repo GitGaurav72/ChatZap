@@ -1,5 +1,6 @@
 package com.novaedge.chatzap.api.entity;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
 import javax.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -48,7 +49,7 @@ public class messageEntity {
     
     @CreationTimestamp
     @Column(name="TIMESTAMP")
-    private LocalDateTime timestamp;
+    private Date timestamp;
     
     @Column(name="IS_READ")
     private boolean isRead;
@@ -96,11 +97,11 @@ public class messageEntity {
 		this.content = content;
 	}
 
-	public LocalDateTime getTimestamp() {
+	public Date getTimestamp() {
 		return timestamp;
 	}
 
-	public void setTimestamp(LocalDateTime timestamp) {
+	public void setTimestamp(Date timestamp) {
 		this.timestamp = timestamp;
 	}
 
@@ -113,7 +114,7 @@ public class messageEntity {
 	}
 
 	public messageEntity(Long messageId, Long sender, Long receiver, Long conversation, String content,
-			LocalDateTime timestamp, boolean isRead) {
+			Date timestamp, boolean isRead) {
 		super();
 		this.messageId = messageId;
 		this.sender = sender;

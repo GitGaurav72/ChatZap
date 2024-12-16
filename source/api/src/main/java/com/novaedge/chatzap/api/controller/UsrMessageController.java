@@ -65,11 +65,11 @@ public class UsrMessageController {
 		
 	}
 	
-//	@PostMapping("/{sendr}/sendMsg/{rcvr}")
-//	@CrossOrigin(origins = "http://localhost:4200")
-//	public messageEntity sendMsg(@PathVariable("sendr") Long sendr, @PathVariable("rcvr") Long rcvr, @RequestBody String msg) {
-//	    return messageService.sendMsg(sendr, rcvr, msg);
-//	}
+	@PostMapping("/{sendr}/sendMsg/{rcvr}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public messageEntity sendMsg(@PathVariable("sendr") Long sendr, @PathVariable("rcvr") Long rcvr, @RequestBody String msg) {
+	    return messageService.sendMsg(sendr, rcvr, msg);
+	}
 	
 	@GetMapping("/{sendr}/Message/{rcvr}")
 	@CrossOrigin(origins = "http://localhost:4200")
