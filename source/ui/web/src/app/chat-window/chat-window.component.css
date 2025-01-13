@@ -9,27 +9,96 @@
 
 .header {
   grid-row: 1; /* First row for the header */
-  background-color:#007bff;
-  padding: 20px;
+  background-color: #007bff;
+  padding: 20px 20px;
   border-bottom: 1px solid #e0e0e0;
-  /*width: 100%;*/ /* Occupy the full width of the chat window */
-  z-index: 1000; /* Stay above other elements */
+  z-index: 1000;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  align-items: center; /* Stay above other elements */
+  /* Align vertically */
+  gap: 10px; /* Space between profile picture and name/status */
 }
 
-img {
-  width: 49px;
+.header .prof {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+  
+}
+
+.header img {
+  width: 50px; /* Profile picture size */
+  height: 50px; /* Ensure it's square */
   border-radius: 50%;
 }
 
+.header div {
+  display: flex;
+  flex-direction: column; /* Stack name and status vertically */
+}
+
+.header h3 {
+  margin: 0; /* Remove extra spacing */
+  color: #0a0101; /* White text for name */
+  font-size: 18px; /* Name size */
+}
+
+.header .status {
+  color: #000000; /* Light color for status */
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;  /* Status text size */
+}
+
+.header .status .light{
+  width: 10px; /* Adjust the size as needed */
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px; /* Spacing between circle and text */
+  background-color: gray; /* Default fade color */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.header .status .light.active {
+  background-color: #008000; /* Blue color for active status */
+}
+
+.header .status .light.inactive {
+  background-color: lightgray; /* Faded color for inactive status */
+}
+
+.header .actions{
+  margin-left: auto;
+  display: flex;
+  flex-direction: row; 
+  gap: 10px;
+
+}
+
+.header .profile-btn{
+  background-color: #f7f7f8;
+  border: none;
+  color: #382d2d;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+.header .call-btn{
+  background-color: #f8f8f8;
+  border: none;
+  color: #382d2d;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-left: 10px;
+}
 .messages {
   grid-row: 2; /* Second row for messages */
   padding: 20px;
   overflow-y: auto; /* Allow vertical scrolling */
   background-color: #fff;
- scrollbar-width: none;
+  scrollbar-width: none;
 }
 
 .message {

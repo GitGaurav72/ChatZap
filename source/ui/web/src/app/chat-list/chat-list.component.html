@@ -3,7 +3,7 @@
     <h2>Chat</h2>
     <div class="search">
       <input type="text" placeholder="Search">
-      <button class="add-btn"  (click)="addFriends()">+</button>
+      <button class="add-btn"  (click)="addFriends(this.id)">+</button>
       
     </div>
   </div>
@@ -16,12 +16,13 @@
           (error)="this.src='assets/default-image.png'">
         <div class="contact-info">
           <h3>{{ contact.firstname }}</h3>
-          <!-- <p>{{ contact.message }}</p> --> 
+
+          <p *ngIf="contact.lstMsg.length > 35">{{ contact.lstMsg.substring(0,35)}} .....</p> 
+          <p *ngIf="contact.lstMsg.length < 35">{{ contact.lstMsg}}</p> 
+          
         </div>
-        <span class="time">{{ contact.status }}</span>
+        <span class="time">{{ contact.lstMsgTm }}</span>
       </div>
-      
-      
     </li>
   </ul>
 </div>

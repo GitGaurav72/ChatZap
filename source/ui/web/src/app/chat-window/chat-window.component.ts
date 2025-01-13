@@ -6,7 +6,7 @@ import { LocalStorageService } from '../LocalStorageService';
 import { UserModel } from '../models/user.model';
 import { Message } from '../models/message.model';
 import {Router} from '@angular/router';
-
+import { WebSocketService } from '../services/websocket.service';
 @Component({
   selector: 'app-chat-window',
   standalone: true,
@@ -26,7 +26,7 @@ export class ChatWindowComponent implements OnInit, AfterViewChecked {
 
   user: UserModel | undefined;
 
-  constructor(private http: HttpClient, private localStorageService: LocalStorageService, private router: Router) { }
+  constructor(private http: HttpClient, private localStorageService: LocalStorageService, private router: Router, private webSocketService : WebSocketService) { }
 
   ngOnInit(): void {
     const token = this.localStorageService.get('token'); // Get the JWT token from localStorage or sessionStorage
@@ -62,7 +62,7 @@ export class ChatWindowComponent implements OnInit, AfterViewChecked {
           acc[messageDate].push({
             text: message.content,
             time: messageTime,
-            sent: message.senderId === this.id
+            sent: message.sender === this.id
           });
 
           return acc;
@@ -80,6 +80,36 @@ export class ChatWindowComponent implements OnInit, AfterViewChecked {
         console.error('Error fetching messages:', error);
       }
     });
+
+     // Connect to WebSocket for receiving new messages
+  this.webSocketService.connect((message) => {
+    const newMessage = JSON.parse(message.body);
+
+    // Add the new message to the grouped messages
+    const messageDate = new Date(newMessage.timestamp).toLocaleDateString();
+    const messageTime = new Date(newMessage.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+    const newMessageObj = {
+      text: newMessage.content,
+      time: messageTime,
+      sent: newMessage.sender === this.id
+    };
+
+    // Find today's group or create a new one
+    let group = this.groupedMessages.find(g => g.date === messageDate);
+    if (group) {
+      group.messages.push(newMessageObj);
+    } else {
+      this.groupedMessages.unshift({
+        date: messageDate,
+        messages: [newMessageObj]
+      });
+    }
+
+    // Update UI
+    this.groupedMessages = [...this.groupedMessages]; // Trigger change detection
+    this.scrollToBottom(); // Scroll to the bottom to show the new message
+  })
   }
 
   // Scroll to the bottom of the message container
@@ -106,7 +136,11 @@ sendMessage() {
       sent: true
     };
     const token = this.localStorageService.get('token'); // Get the JWT token from localStorage or sessionStorage
-
+    if (!token) {
+      console.error('No valid token found. Redirecting to login.');
+      this.router.navigate(['/login']);
+      return;
+    }
     const headers = new HttpHeaders({
       "Content-Type": "application/JSON",
       'Authorization': `Bearer ${token}` // Include the token in the Authorization header
@@ -120,6 +154,7 @@ sendMessage() {
         // `data` is typed as `Message`, so you can access properties like `data.content`
         console.log('Received message:', data);
         // You can also assign `data` to a message variable if you need to store it
+        this.webSocketService.sendMessage(`/user/${this.senderId}/queue/messages`, data);
       },
       error: (error) => {
         console.error('Error sending message:', error);

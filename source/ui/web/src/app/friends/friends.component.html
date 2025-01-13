@@ -1,18 +1,22 @@
 <div class="navbar">
-    <button class="nav-button" (click)="viewSentRequests()">Sent Requests</button>
+  <div class="actions">
     <button class="nav-button" (click)="viewReceivedRequests()">Received Requests</button>
+    <button class="nav-button" (click)="viewSentRequests()">Sent Requests</button>
+  </div>
   </div>
   
   <div class="friends-container">
-    <h2>Your Friends</h2>
+    <h2 ng *ngIf="this.pageSts==''">Your Friends</h2>
+    <h2 ng *ngIf="this.pageSts=='reqSntPage'">Chat Invitations you got</h2>
     <div class="friend-card" *ngFor="let friend of friends">
       <img [src]="'assets/image1.png'" alt="Friend Avatar" class="friend-avatar" />
       <div class="friend-details">
-        <h3>{{ friend.name }}</h3>
+        <h3>{{ friend.firstname }} {{ friend.lastname }}</h3>
         <p>{{ friend.status }}</p>
       </div>
       <div class="friend-actions">
-        <button class="action-button" (click)="sendChatRequest(friend.id)">Send Chat Request</button>
+        <button class="action-button" *ngIf="this.pageSts==''" (click)="sendChatRequest(friend.id)">Send Chat Request</button>
+        <button class="action-button" *ngIf="this.pageSts=='reqSntPage'" (click)="acceptChatRequest(friend.id)">Accept Chat Request</button>
         <button class="action-button" (click)="showProfile(friend.id)">Show Profile</button>
       </div>
     </div>

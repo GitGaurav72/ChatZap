@@ -4,6 +4,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 @Table(name="CT_Convr_PrtcpntEntity")
@@ -26,6 +27,14 @@ public class convrPrtcpntEntity {
     @CreationTimestamp
     @Column(name="JOINED_AT")
     private Date joinedAt;
+    
+  
+    @Column(name="LAST_MSG")
+    private String lstMsg;
+    
+    @UpdateTimestamp
+    @Column(name="LAST_MSG_TIME")
+    private Date lstMsgTm;
 
     // Getters and Setters
     public Long getId() {
@@ -59,15 +68,33 @@ public class convrPrtcpntEntity {
     public void setJoinedAt(Date joinedAt) {
         this.joinedAt = joinedAt;
     }
+    
+    public String getLstMsg() {
+		return lstMsg;
+	}
 
-    // Default constructor
+	public void setLstMsg(String lstMsg) {
+		this.lstMsg = lstMsg;
+	}
+
+	public Date getLstMsgTm() {
+		return lstMsgTm;
+	}
+
+	public void setLstMsgTm(Date lstMsgTm) {
+		this.lstMsgTm = lstMsgTm;
+	}
+
+	// Default constructor
     public convrPrtcpntEntity() {}
 
     // Constructor
-    public convrPrtcpntEntity(Long id, conversationEntity conversation, userEntity user, Date joinedAt) {
+    public convrPrtcpntEntity(Long id, conversationEntity conversation, userEntity user, Date joinedAt, String lstMsg, Date lstMsgTm) {
         this.id = id;
         this.conversation = conversation;
         this.user = user;
         this.joinedAt = joinedAt;
+        this.lstMsg = lstMsg;
+        this.lstMsgTm =  lstMsgTm;
     }
 }

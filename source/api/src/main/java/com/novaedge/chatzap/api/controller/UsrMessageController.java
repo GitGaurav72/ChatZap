@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -41,22 +42,9 @@ public class UsrMessageController {
 	@Autowired
 	private UserRepository userRepository;
 	
-//    @Autowired
-//    private SimpMessagingTemplate messagingTemplate;
+    @Autowired
+    private SimpMessagingTemplate messagingTemplate;
     
-    
-//    @PostMapping("/messages/send")
-//    public messageEntity sendMessage(@RequestBody messageEntity msg) {
-//        messageEntity savedMsg = messageService.sndMsg(msg);
-//        messagingTemplate.convertAndSend("/topic/messages/" + msg.getReceiver().getId(), savedMsg);
-//        return savedMsg;
-//    }
-//
-//    @MessageMapping("/send/{receiverId}")
-//    @SendTo("/topic/messages/{receiverId}")
-//    public messageEntity sendMsgToReceiver(@RequestBody messageEntity msg, @PathVariable Long receiverId) {
-//        return messageService.sndMsg(msg);
-//    } 
     
 	@PostMapping("/messages/send")
 	public messageEntity sendMessage(@RequestBody messageEntity msg) 
@@ -68,7 +56,13 @@ public class UsrMessageController {
 	@PostMapping("/{sendr}/sendMsg/{rcvr}")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public messageEntity sendMsg(@PathVariable("sendr") Long sendr, @PathVariable("rcvr") Long rcvr, @RequestBody String msg) {
-	    return messageService.sendMsg(sendr, rcvr, msg);
+		  // Save the message in the database
+        messageEntity message = messageService.sendMsg(sendr, rcvr, msg);
+
+        // Notify the recipient via WebSocket
+        messagingTemplate.convertAndSendToUser(rcvr.toString(), "/queue/messages", message);
+
+        return message;
 	}
 	
 	@GetMapping("/{sendr}/Message/{rcvr}")
@@ -77,8 +71,6 @@ public class UsrMessageController {
 	    // You can now access the authenticated user's details
 	    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 	  
-//	    String username = authentication.getName(); // Extract the username (or ID) of the authenticated user
-//	    System.out.println(username);
 	    // Proceed with your logic
 	    return messageService.chatMsg(sendr, rcvr);
 	    

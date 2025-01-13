@@ -50,27 +50,7 @@ public class userEntity {
     @Column(name="UPDATED_AT")
     private Date updatedAt;
 
-//    // One-to-Many relationship with Messages as sender
-//    @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL)
-//    @JsonManagedReference
-//    private List<messageEntity> sentMessages;
-//
-//    // One-to-Many relationship with Messages as receiver
-//    @OneToMany(mappedBy = "receiver", cascade = CascadeType.ALL)
-//    @JsonManagedReference
-//    private List<messageEntity> receivedMessages;
-//
-//    // Many-to-Many relationship with Conversation through ConversationParticipants
-//    @ManyToMany
-//    @JoinTable(
-//        name = "ConversationParticipants",
-//        joinColumns = @JoinColumn(name = "user_id"),
-//        inverseJoinColumns = @JoinColumn(name = "conversation_id")
-//    )
-//    private Set<conversationEntity> conversations;
-//    
     
-    // Default constructor
     public userEntity() {}
 
     // Constructor
@@ -169,29 +149,6 @@ public class userEntity {
         this.updatedAt = updatedAt;
     }
 
-//    public List<messageEntity> getSentMessages() {
-//        return sentMessages;
-//    }
-//
-//    public void setSentMessages(List<messageEntity> sentMessages) {
-//        this.sentMessages = sentMessages;
-//    }
-//
-//    public List<messageEntity> getReceivedMessages() {
-//        return receivedMessages;
-//    }
-//
-//    public void setReceivedMessages(List<messageEntity> receivedMessages) {
-//        this.receivedMessages = receivedMessages;
-//    }
-//
-//    public Set<conversationEntity> getConversations() {
-//        return conversations;
-//    }
-//
-//    public void setConversations(Set<conversationEntity> conversations) {
-//        this.conversations = conversations;
-//    }
 
 }
 

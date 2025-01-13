@@ -1,17 +1,28 @@
 <div class="chat-window">
   <div class="header">
-    <img 
-    [src]="user?.profilePicture || 'assets/image1.png'" 
-    alt="Profile picture of {{user?.firstname }}" >
-    <h3>{{ user?.firstname }} {{ user?.lastname }}</h3>
-    <div class="status">
-      <span class="online">{{ user?.status }}</span>
+    <div class="prof">
+    <div>
+      <img 
+      [src]="user?.profilePicture || 'assets/image1.png'" 
+      alt="Profile picture of {{user?.firstname}}">
     </div>
-    <div class="actions">
-      <button class="profile-btn" (click)="showProfile(senderId)">Profile</button>
-      <button class="call-btn">Call</button>
+    <div>
+      <h3>{{ user?.firstname }} {{ user?.lastname }}</h3>
+      <div class="status">
+        <div 
+          class="light" 
+          [ngClass]="{'active': user?.status === 'active', 'inactive': user?.status !== 'active'}">
+        </div>
+        <span class="online">{{ user?.status }}</span>
+      </div>
     </div>
   </div>
+    <span class="actions">
+      <button class="profile-btn" (click)="showProfile(senderId)">Profile</button>
+      <button class="call-btn">Call</button>
+    </span>
+  </div>
+  
 
   <div class="messages"   #messagess>
     <!-- Loop through grouped messages by date -->
@@ -22,7 +33,7 @@
       <!-- Loop through each message for that date -->
       <div class="message" *ngFor="let message of group.messages" [ngClass]="{'sent': message.sent, 'received': !message.sent}">
         <p>{{ message.text }}</p>
-        <span class="time">{{ message.time }}</span>
+        <div class="time">{{ message.time }}</div>
       </div>
     </div>
   </div>

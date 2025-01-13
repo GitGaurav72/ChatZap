@@ -79,6 +79,7 @@ org.eclipse.gef.color.menu.background=32,36,39
 org.eclipse.gef.color.menu.foreground=219,222,225
 org.eclipse.gef.color.menu.foreground.selected=90,101,109
 org.eclipse.jdt.ui.ColoredLabels.inherited=143,143,191
+org.eclipse.jdt.ui.ColoredLabels.match_highlight=73,83,90
 org.eclipse.jdt.ui.ColoredLabels.writeaccess_highlight=255,128,128
 org.eclipse.jdt.ui.Javadoc.backgroundColor=48,54,59
 org.eclipse.jdt.ui.Javadoc.foregroundColor=235,237,239

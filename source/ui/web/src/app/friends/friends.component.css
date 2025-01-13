@@ -1,8 +1,17 @@
 .navbar {
-    display: flex;
+   
+    margin-left: auto;
     justify-content: space-around;
+    flex-direction: row; 
     background-color: #007bff;
-    padding: 10px;
+    padding: 20px;
+  }
+
+  .navbar .actions{
+    display: flex;
+    margin-left: auto;
+    gap: 10px;
+    flex-direction: row-reverse;
   }
   
   .nav-button {

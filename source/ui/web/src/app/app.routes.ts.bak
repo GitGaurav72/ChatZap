@@ -14,7 +14,7 @@ export const routes: Routes = [
   { path: 'window/:id/:senderId', component: WindowComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'user/friends/:userId', component: FriendsComponent },
+  { path: 'user/friends', component: FriendsComponent },
   { path: 'friend-profile/:friendId', component: FriendProfileComponent },
 ];
 

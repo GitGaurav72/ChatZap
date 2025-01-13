@@ -3,9 +3,6 @@ package com.novaedge.chatzap.api.services;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
-import java.util.random.RandomGenerator;
-import java.time.LocalDateTime;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -79,8 +76,13 @@ public class MessageService {
 		msgEntty.setSender(sndr.get().getId());
 		msgEntty.setReceiver(recever.get().getId());
 		msgEntty.setConversation(conversation.getConversationId());
-//		msgEntty.setTimestamp(LocalDateTime.now());
 		msgEntty.setRead(false);
+		List<convrPrtcpntEntity> covPrtEnts = convrPartcpntRepository.findByConversation(conversation);
+		for(convrPrtcpntEntity  covPrtEnt :covPrtEnts) {
+			covPrtEnt.setLstMsg(msg);
+//			covPrtEnt.setLstMsgTm();
+			convrPartcpntRepository.save(covPrtEnt);
+		}
 		return messageDao.save(msgEntty);
 	}
 }
